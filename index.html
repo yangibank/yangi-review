@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Оставьте отзыв</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .box {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 0;
+    }
+  </style>
+  <script>
+    const iosLink = "https://apps.apple.com/in/app/yangi-online-banking-loans/id1644376437?action=write-review";
+    const androidLink = "market://details?id=uz.yangi.finance";
+    const fallbackLink = "https://play.google.com/store/apps/details?id=uz.yangi.finance&reviewId=0";
+
+    function redirect() {
+      const ua = navigator.userAgent || navigator.vendor || window.opera;
+
+      setTimeout(() => {
+        if (/android/i.test(ua)) {
+          window.location.href = androidLink;
+        } else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
+          window.location.href = iosLink;
+        } else {
+          window.location.href = fallbackLink;
+        }
+      }, 2000);
+    }
+
+    window.onload = redirect;
+  </script>
+</head>
+<body>
+  <div class="box">
+    <h1>Благодарим за использование Yangi!</h1>
+    <p>Мы будем очень признательны, если вы оставите отзыв в магазине приложений 🙏</p>
+    <p>Перенаправляем...</p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<script>
+  const iosLink = "https://apps.apple.com/in/app/yangi-online-banking-loans/id1644376437?action=write-review";
+  const androidLink = "market://details?id=uz.yangi.finance";
+  const fallbackLink = "https://play.google.com/store/apps/details?id=uz.yangi.finance";
+
+  function redirect() {
+    const ua = navigator.userAgent || navigator.vendor || window.opera;
+
+    if (/android/i.test(ua)) {
+      window.location.href = androidLink;
+    } else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
+      window.location.href = iosLink;
+    } else {
+      window.location.href = fallbackLink;
+    }
+  }
+
+  window.onload = redirect;
+</script>
